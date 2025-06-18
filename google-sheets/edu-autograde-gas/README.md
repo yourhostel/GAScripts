@@ -108,3 +108,52 @@ function getFormStructure() {
 ### Після згоди ми отримаємо повні масиви даних форми
 
 ![Screenshot from 2025-05-29 15-54-48.png](screenshots/Screenshot%20from%202025-05-29%2015-54-48.png)
+---
+# Google Workspace-організація з власним доменом (наприклад, *@tysser.com замість *@gmail.com)
+
+Розширений функціонал облікового запису організації надає доступ до адміністративної консолі
+https://admin.google.com
+
+---
+Для налаштування:
+1. Переходимо за посиланням:  
+   https://workspace.google.com/signup  
+   та дотримуємося інструкцій: вказуємо назву організації, контактні дані, свій домен.
+
+2. Для підтвердження домену Google надає TXT-запис, який потрібно додати в DNS-зону домену. Залежно від реєстратора спосіб додавання буде різний.
+
+3. Після підтвердження домену потрібно додати MX-запис у DNS для налаштування корпоративної пошти. У найпростішому варіанті достатньо одного запису:
+   * Тип: MX
+   * Пріоритет: 1
+   * Значення: smtp.google.com.`
+4. Оскільки акаунт створюється для організації, необхідно буде надати дані юридичної особи та платіжну картку.
+---
+
+### Налаштування політики управління папками проекту
+> Щоб гнучко можна було створювати структуру організації, додаємо можливість управління каталогами проекту
+
+https://console.cloud.google.com/iam-admin/iam?orgonly=true&organizationId={id_organization}
+
+> Отримати `id_organization` можна тут https://console.cloud.google.com
+- `IAM & Admin` -> `Manage resources`
+
+![Screenshot from 2025-06-18 03-19-45.png](screenshots/Screenshot%20from%202025-06-18%2003-19-45.png)
+- `Resource Manager` -> `Folder Admin`
+
+> Тепер легко створювати структуру проектів
+- `IAM & Admin` -> `Manage resources`
+
+![Screenshot from 2025-06-18 23-18-36.png](screenshots/Screenshot%20from%202025-06-18%2023-18-36.png)
+
+> Включити потрібні API у проекті для нашого скрипту
+
+- APIs & Services -> Library -> Google Workspace -> **Google Classroom API**
+- APIs & Services -> Library -> Google Workspace -> **Google Forms API**
+
+> За потреби можна включити й інші, наприклад:
+
+- APIs & Services -> Library -> Admin SDK -> **Admin SDK API**
+- APIs & Services -> Library -> Google Workspace -> **Google Drive API**
+- APIs & Services -> Library -> Google Workspace -> **Gmail API**
+
+> Застосовуємо політики до нашого створеного проекту
