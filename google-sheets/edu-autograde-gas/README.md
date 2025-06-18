@@ -49,40 +49,8 @@
    - Далі необхідно додати користувача, для цього переходимо в `Audience` і додаємо свою адресу електронної пошти.
    - `APIs & Services` -> `OAuth consent screen` -> `Audience` -> `Add users`
 
-4) Додаємо скрипт [script.google.com](https://script.google.com)
+4) Додаємо скрипт [script.google.com](https://script.google.com), з [таким змістом](https://github.com/yourhostel/GAScripts/blob/main/google-sheets/edu-autograde-gas/FormToClassroom.gs)
 
-```javascript
-function getFormStructure() {
-  var formId = "1R2OiClmTbz";
-
-  const url_form = `https://forms.googleapis.com/v1/forms/${formId}`;
-  const url_answers = `https://forms.googleapis.com/v1/forms/${formId}/responses`;
-
-  const token = ScriptApp.getOAuthToken();
-
-  const res_form = UrlFetchApp.fetch(url_form, {
-    method: "get",
-    headers: {
-      Authorization: "Bearer " + token,
-    },
-    muteHttpExceptions: true,
-  });
-
-  Logger.log(res_form.getResponseCode());
-  Logger.log(res_form.getContentText());
-
-  const res_answers = UrlFetchApp.fetch(url_answers, {
-    method: "get",
-    headers: {
-      Authorization: "Bearer " + token,
-    },
-    muteHttpExceptions: true,
-  });
-
-  Logger.log(res_answers.getResponseCode());
-  Logger.log(res_answers.getContentText());
-}
-```
 
 - У `appsscript.json` вказати `oauthScopes`. Для цього в `Налаштуваннях проекту` треба активувати чекбокс `Показувати файл маніфесту appsscript.json у редакторі`
 ```json
@@ -102,8 +70,13 @@ function getFormStructure() {
 > Також, тут у налаштуваннях, змінюємо номер проекту за замовчуванням, 
 > на номер проекту створеного раніше в консолі `google cloud`
 
-### Тепер можна запустити скрипт і ми повинні отримати повідомлення про дозволи
+### Тепер можна запустити скрипт і ми повинні отримати
+<details>
+<summary>повідомлення про дозволи</summary>
+
 ![Screenshot from 2025-05-29 15-15-23.png](screenshots/Screenshot%20from%202025-05-29%2015-15-23.png)
+
+</details>
 
 ### Після згоди ми отримаємо повні масиви даних форми
 
