@@ -66,10 +66,11 @@
    - Далі необхідно додати користувача, для цього переходимо в `Audience` і додаємо свою адресу електронної пошти.
    - `APIs & Services` -> `OAuth consent screen` -> `Audience` -> `Add users`
 
-4) Додаємо скрипт [script.google.com](https://script.google.com), з [таким змістом](https://github.com/yourhostel/GAScripts/blob/main/google-sheets/edu-autograde-gas/FormToClassroom.gs)
+4) Додаємо скрипт у [script.google.com](https://script.google.com), з [таким змістом](https://github.com/yourhostel/GAScripts/blob/main/google-sheets/edu-autograde-gas/FormToClassroom.gs)
 
 
 - У `appsscript.json` вказати `oauthScopes`. Для цього в `Налаштуваннях проекту` треба активувати чекбокс `Показувати файл маніфесту appsscript.json у редакторі`
+
 ```json
 {
   "timeZone": "Europe/Kyiv",
@@ -78,19 +79,113 @@
   "exceptionLogging": "STACKDRIVER",
   "runtimeVersion": "V8",
    "oauthScopes": [
-    "https://www.googleapis.com/auth/forms.body.readonly",
-    "https://www.googleapis.com/auth/forms.responses.readonly",
-    "https://www.googleapis.com/auth/script.external_request"
+     "https://www.googleapis.com/auth/forms.body.readonly",
+     "https://www.googleapis.com/auth/forms.responses.readonly",
+     "https://www.googleapis.com/auth/script.external_request",
+     "https://www.googleapis.com/auth/classroom.courses.readonly",
+     "https://www.googleapis.com/auth/classroom.coursework.students.readonly",
+     "https://www.googleapis.com/auth/classroom.rosters.readonly",
+     "https://www.googleapis.com/auth/classroom.coursework.students",
+     "https://www.googleapis.com/auth/classroom.profile.emails",
+     "https://www.googleapis.com/auth/classroom.profile.photos"
   ]
 }
 ```
+
+<details>
+<summary><span style="font-size:16px"><strong>Опис деяких скоупів:</strong></span></summary>
+
+<details>
+<summary><span style="font-size:16px"><strong>Курси</strong></span></summary>
+
+| Scope | Опис |
+|-------|------|
+| `https://www.googleapis.com/auth/classroom.courses.readonly` | читання списку курсів |
+| `https://www.googleapis.com/auth/classroom.courses` | читання, створення та редагування курсів |
+
+</details>
+
+<details>
+<summary><span style="font-size:16px"><strong>Завдання (CourseWork)</strong></span></summary>
+
+| Scope | Опис |
+|-------|------|
+| `https://www.googleapis.com/auth/classroom.coursework.me.readonly` | читання завдань лише власного профілю |
+| `https://www.googleapis.com/auth/classroom.coursework.me` | читання та редагування власних завдань |
+| `https://www.googleapis.com/auth/classroom.coursework.students.readonly` | читання завдань студентів |
+| `https://www.googleapis.com/auth/classroom.coursework.students` | читання та публікація завдань для студентів |
+
+</details>
+
+<details>
+<summary><span style="font-size:16px"><strong>Студенти та оцінки</strong></span></summary>
+
+| Scope | Опис |
+|-------|------|
+| `https://www.googleapis.com/auth/classroom.rosters.readonly` | читання списку студентів і викладачів |
+| `https://www.googleapis.com/auth/classroom.rosters` | додавання та видалення студентів |
+| `https://www.googleapis.com/auth/classroom.student-submissions.me.readonly` | читання власних надісланих робіт |
+| `https://www.googleapis.com/auth/classroom.student-submissions.me` | читання та редагування власних надісланих робіт |
+| `https://www.googleapis.com/auth/classroom.student-submissions.students.readonly` | читання надісланих завдань усіх студентів |
+| `https://www.googleapis.com/auth/classroom.student-submissions.students` | оцінювання, повернення та керування роботами |
+
+</details>
+
+<details>
+<summary><span style="font-size:16px"><strong>Профіль користувача</strong></span></summary>
+
+| Scope | Опис |
+|-------|------|
+| `https://www.googleapis.com/auth/classroom.profile.emails` | доступ до email-адрес користувачів |
+| `https://www.googleapis.com/auth/classroom.profile.photos` | доступ до аватарок користувачів |
+
+</details>
+
+<details>
+<summary><span style="font-size:16px"><strong>Управління темами, запрошеннями та батьками</strong></span></summary>
+
+| Scope | Опис |
+|-------|------|
+| `https://www.googleapis.com/auth/classroom.topics` | керування темами курсу |
+| `https://www.googleapis.com/auth/classroom.guardianlinks.students` | керування зв’язками з батьками студентів |
+| `https://www.googleapis.com/auth/classroom.guardianlinks.me.readonly` | перегляд батьків, призначених для вашого акаунту |
+
+</details>
+
+<details>
+<summary><span style="font-size:16px"><strong>Спеціальні для адміністраторів</strong></span></summary>
+
+| Scope | Опис |
+|-------|------|
+| `https://www.googleapis.com/auth/classroom.announcements` | створення оголошень у курсах |
+| `https://www.googleapis.com/auth/classroom.announcements.readonly` | читання оголошень |
+| `https://www.googleapis.com/auth/classroom.push-notifications` | підписка на реальні зміни через Pub/Sub |
+
+</details>
+
+<details>
+<summary><span style="font-size:16px"><strong>Ще про скоупи</strong></span></summary>
+
+* З повним списком скоупів можна ознайомитись за посиланням [developers.google.com](https://developers.google.com/identity/protocols/oauth2/scopes?hl=ru)
+```bash
+# Можна отримувати скоупи через cli:
+
+curl https://www.googleapis.com/discovery/v1/apis/classroom/v1/rest | jq '.auth.oauth2.scopes'
+```
+
+</details>
+
+</details>
+
+---
+
 > Також, тут у налаштуваннях, змінюємо номер проекту за замовчуванням, 
 > на номер проекту створеного раніше в консолі `google cloud`
 
 ### Тепер можна запустити скрипт і ми повинні отримати
 
 <details>
-<summary><span style="font-size:16px"><strong>повідомлення про дозволи</strong></span></summary>>
+<summary><span style="font-size:16px"><strong>повідомлення про дозволи</strong></span></summary>
 
 # ![Screenshot from 2025-05-29 15-15-23.png](screenshots/Screenshot%20from%202025-05-29%2015-15-23.png)
 
@@ -122,7 +217,7 @@ https://admin.google.com
 3. Після підтвердження домену потрібно додати MX-запис у DNS для налаштування корпоративної пошти. У найпростішому варіанті достатньо одного запису:
    * Тип: MX
    * Пріоритет: 1
-   * Значення: smtp.google.com.`
+   * Значення: smtp.google.com.
 4. Оскільки акаунт створюється для організації, необхідно буде надати дані юридичної особи та платіжну картку.
 ---
 
