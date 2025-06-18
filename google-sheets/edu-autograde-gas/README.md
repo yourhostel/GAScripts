@@ -7,9 +7,14 @@
    - `IAM & Admin` -> `Manage resources` -> ` Create project`
    - name:  example `ISTU-Kovalenko-Classroom`
 
+<details>
+<summary><span style="font-size:16px"><em>скріншот</em></span></summary>
+
    # ![Screenshot from 2025-05-29 14-13-38.png](screenshots/Screenshot%20from%202025-05-29%2014-13-38.png)
    # ![Screenshot from 2025-05-29 14-14-27.png](screenshots/Screenshot%20from%202025-05-29%2014-14-27.png)
    # ![Screenshot from 2025-05-29 14-14-51.png](screenshots/Screenshot%20from%202025-05-29%2014-14-51.png)
+
+</details>
 
    > Якщо у вас налаштовано організацію — можна створити проєкт всередині неї або в окремій папці (folder).
    > Папки доступні тільки в рамках підтвердженої організаційної структури 
@@ -21,9 +26,15 @@
    > (`Google Classroom API`, `Google Forms API`) нам їх треба активувати.
    - `APIs & Services` -> `Library` -> `Google Workspace` -> `Google Classroom API`
    - `APIs & Services` -> `Library` -> `Google Workspace` -> `Google Forms API`
+
+<details>
+<summary><span style="font-size:16px"><em>скріншот</em></span></summary>
+
    # ![Screenshot from 2025-05-29 14-31-25.png](screenshots/Screenshot%20from%202025-05-29%2014-31-25.png)
    # ![Screenshot from 2025-05-29 14-36-50.png](screenshots/Screenshot%20from%202025-05-29%2014-36-50.png)
    # ![Screenshot from 2025-05-29 14-37-15.png](screenshots/Screenshot%20from%202025-05-29%2014-37-15.png)
+
+</details>
 
 3) Налаштування OAuth consent screen
 
@@ -44,7 +55,13 @@
        - Continue ->
    - Create
 
+
+<details>
+<summary><span style="font-size:16px"><em>скріншот</em></span></summary>
+
    # ![Screenshot from 2025-05-29 15-03-20.png](screenshots/Screenshot%20from%202025-05-29%2015-03-20.png)
+
+</details>
    
    - Далі необхідно додати користувача, для цього переходимо в `Audience` і додаємо свою адресу електронної пошти.
    - `APIs & Services` -> `OAuth consent screen` -> `Audience` -> `Add users`
@@ -71,16 +88,23 @@
 > на номер проекту створеного раніше в консолі `google cloud`
 
 ### Тепер можна запустити скрипт і ми повинні отримати
-<details>
-<summary>повідомлення про дозволи</summary>
 
-![Screenshot from 2025-05-29 15-15-23.png](screenshots/Screenshot%20from%202025-05-29%2015-15-23.png)
+<details>
+<summary><span style="font-size:16px"><strong>повідомлення про дозволи</strong></span></summary>>
+
+# ![Screenshot from 2025-05-29 15-15-23.png](screenshots/Screenshot%20from%202025-05-29%2015-15-23.png)
 
 </details>
 
-### Після згоди ми отримаємо повні масиви даних форми
+### Після згоди ми отримаємо
 
-![Screenshot from 2025-05-29 15-54-48.png](screenshots/Screenshot%20from%202025-05-29%2015-54-48.png)
+<details>
+<summary><span style="font-size:16px"><strong>повні масиви даних форми</strong></span></summary>
+
+# ![Screenshot from 2025-05-29 15-54-48.png](screenshots/Screenshot%20from%202025-05-29%2015-54-48.png)
+
+</details>
+
 ---
 # Google Workspace-організація з власним доменом (наприклад, *@tysser.com замість *@gmail.com)
 
@@ -110,13 +134,24 @@ https://console.cloud.google.com/iam-admin/iam?orgonly=true&organizationId={id_o
 > Отримати `id_organization` можна тут https://console.cloud.google.com
 - `IAM & Admin` -> `Manage resources`
 
-![Screenshot from 2025-06-18 03-19-45.png](screenshots/Screenshot%20from%202025-06-18%2003-19-45.png)
+<details>
+<summary><span style="font-size:16px"><em>скріншот</em></span></summary>
+
+# ![Screenshot from 2025-06-18 03-19-45.png](screenshots/Screenshot%20from%202025-06-18%2003-19-45.png)
+
+</details>
+
 - `Resource Manager` -> `Folder Admin`
 
 > Тепер легко створювати структуру проектів
 - `IAM & Admin` -> `Manage resources`
 
-![Screenshot from 2025-06-18 23-18-36.png](screenshots/Screenshot%20from%202025-06-18%2023-18-36.png)
+<details>
+<summary><span style="font-size:16px"><em>скріншот</em></span></summary>
+
+# ![Screenshot from 2025-06-18 23-18-36.png](screenshots/Screenshot%20from%202025-06-18%2023-18-36.png)
+
+</details>
 
 > Включити потрібні API у проекті для нашого скрипту
 
