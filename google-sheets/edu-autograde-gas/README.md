@@ -66,7 +66,7 @@
    - Далі необхідно додати користувача, для цього переходимо в `Audience` і додаємо свою адресу електронної пошти.
    - `APIs & Services` -> `OAuth consent screen` -> `Audience` -> `Add users`
 
-4) Додаємо скрипт у [script.google.com](https://script.google.com), з [таким змістом](https://github.com/yourhostel/GAScripts/blob/main/google-sheets/edu-autograde-gas/FormToClassroom.gs)
+4) Додаємо скрипт у [script.google.com](https://script.google.com), з [таким змістом](https://github.com/yourhostel/GAScripts/blob/main/google-sheets/edu-autograde-gas/GET_form.gs)
 
 
 - У `appsscript.json` вказати `oauthScopes`. Для цього в `Налаштуваннях проекту` треба активувати чекбокс `Показувати файл маніфесту appsscript.json у редакторі`
