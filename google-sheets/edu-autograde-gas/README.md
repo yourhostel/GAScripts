@@ -286,7 +286,17 @@ https://console.cloud.google.com/iam-admin/iam?orgonly=true&organizationId={id_o
 
 - Функція `GetSubmissions()` отримує всі надіслані відповіді студентів (`submissions`) на конкретне завдання (`courseWorkId`) у межах вказаного курсу (`courseId`) через **Google Classroom API**. Результат у вигляді `JSON` виводиться в лог для перегляду.
 
-## []()
+### [GET_user_email.gs](https://github.com/yourhostel/GAScripts/blob/main/google-sheets/edu-autograde-gas/GET_user_email.gs)
+
+- Функція `getUserEmail()` звертається до **Google Classroom API**, щоб отримати профіль користувача за `userId`. Вона робить GET-запит до userProfiles, розбирає відповідь і намагається вивести email-адресу користувача.
+
+### [GET_students.gs](https://github.com/yourhostel/GAScripts/blob/main/google-sheets/edu-autograde-gas/GET_students.gs)
+
+- Функція `listStudents()` отримує список усіх студентів, зарахованих до курсу за вказаним `courseId`. Відповідь у форматі `JSON` виводиться в лог.
+- Для отримання email'у потрібен відповідний скоуп:
+
+> `https://www.googleapis.com/auth/classroom.profile.emails`
+
 * [google docs workspace/forms](https://developers.google.com/workspace/forms/api/guides?hl=ru)
 * [google docs workspace/classroom](https://developers.google.com/workspace/classroom/guides/manage-courses?hl=ru)
 * [google docs identity/scopes](https://developers.google.com/identity/protocols/oauth2/scopes?hl=ru)
