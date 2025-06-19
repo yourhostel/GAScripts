@@ -269,14 +269,14 @@ https://console.cloud.google.com/iam-admin/iam?orgonly=true&organizationId={id_o
 
 ### [GET_form.gs](https://github.com/yourhostel/GAScripts/blob/main/google-sheets/edu-autograde-gas/GET_form.gs)
 
-- Функція getFormStructure() підключається до Google Forms API і робить два запити: перший отримує метадані самої форми (щоб перевірити доступність), другий — завантажує всі відповіді. Потім вона розбирає ці відповіді, витягує email автора та зазначений загальний бал (якщо він є), і виводить пару «Email | Score» в лог.
+- Функція `getFormStructure()` підключається до **Google Forms API** і робить два запити: перший отримує метадані самої форми (щоб перевірити доступність), другий — завантажує всі відповіді. Потім вона розбирає ці відповіді, витягує email автора та зазначений загальний бал (якщо він є), і виводить пару `«Email | Score»` в лог.
 
 ## Classroom:
 
 ### [GET_courses.gs](https://github.com/yourhostel/GAScripts/blob/main/google-sheets/edu-autograde-gas/GET_courses.gs)
 
-- Функція getCourses() виконує GET-запит до Google Classroom API для отримання списку курсів, доступних користувачу, під чиїм акаунтом працює скрипт.
-  Результат у форматі JSON виводиться у лог через Logger.log().
+- Функція `getCourses()` виконує GET-запит до **Google Classroom API** для отримання списку курсів, доступних користувачу, під чиїм акаунтом працює скрипт.
+  Результат у форматі `JSON` виводиться у лог через `Logger.log()`.
 
 
 * [google docs workspace/forms](https://developers.google.com/workspace/forms/api/guides?hl=ru)
