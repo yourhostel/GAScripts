@@ -339,6 +339,8 @@ https://console.cloud.google.com/iam-admin/iam?orgonly=true&organizationId={id_o
 
 </details>
 
+---
+### Корисні посилання:
 * [google docs workspace/forms](https://developers.google.com/workspace/forms/api/guides?hl=ru)
 * [google docs workspace/classroom](https://developers.google.com/workspace/classroom/guides/manage-courses?hl=ru)
 * [google docs identity/scopes](https://developers.google.com/identity/protocols/oauth2/scopes?hl=ru)
