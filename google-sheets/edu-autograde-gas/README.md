@@ -278,7 +278,15 @@ https://console.cloud.google.com/iam-admin/iam?orgonly=true&organizationId={id_o
 - Функція `getCourses()` виконує GET-запит до **Google Classroom API** для отримання списку курсів, доступних користувачу, під чиїм акаунтом працює скрипт.
   Результат у форматі `JSON` виводиться у лог через `Logger.log()`.
 
+### [GET_course_work.gs](https://github.com/yourhostel/GAScripts/blob/main/google-sheets/edu-autograde-gas/GET_course_work.gs)
 
+-  Функція `getCourseWork()` надсилає GET-запит до **Google Classroom API** для отримання всіх завдань (courseWork) з курсу, ідентифікованого через courseId. Вона використовує OAuth-токен поточного користувача для авторизації, а результат — сирий `JSON` з інформацією про завдання — виводиться в лог.
+
+### [GET_submissions.gs](https://github.com/yourhostel/GAScripts/blob/main/google-sheets/edu-autograde-gas/GET_submissions.gs)
+
+- Функція `GetSubmissions()` отримує всі надіслані відповіді студентів (`submissions`) на конкретне завдання (`courseWorkId`) у межах вказаного курсу (`courseId`) через **Google Classroom API**. Результат у вигляді `JSON` виводиться в лог для перегляду.
+
+## []()
 * [google docs workspace/forms](https://developers.google.com/workspace/forms/api/guides?hl=ru)
 * [google docs workspace/classroom](https://developers.google.com/workspace/classroom/guides/manage-courses?hl=ru)
 * [google docs identity/scopes](https://developers.google.com/identity/protocols/oauth2/scopes?hl=ru)

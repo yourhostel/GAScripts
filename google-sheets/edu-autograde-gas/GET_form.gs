@@ -1,5 +1,5 @@
 function getFormStructure() {
-  var formId = "199mXFNE7bUgV-6EsowEanT50u06SwIqmEV-z0xFuVdA";
+  var formId = "199mXFNE7....";
 
   const url_form = `https://forms.googleapis.com/v1/forms/${formId}`;
   const url_answers = `https://forms.googleapis.com/v1/forms/${formId}/responses`;
